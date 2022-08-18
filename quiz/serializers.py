@@ -11,7 +11,15 @@ class QuizSerializer(serializers.ModelSerializer):
 
 
 class RandomQuestionSerializer(serializers.ModelSerializer):
-    answer = serializers.StringRelatedField(many=True)
+    answer = serializers.StringRelatedField(many=True, read_only=True)
+
+    class Meta:
+        model = Question
+        fields = ['title', 'answer',]
+
+
+class QuestionSerializer(serializers.ModelSerializer):
+    answer = serializers.StringRelatedField(many=True, read_only=True)
 
     class Meta:
         model = Question
