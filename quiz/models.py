@@ -67,3 +67,6 @@ class Answer(Updated):
         verbose_name = _('Answer')
         verbose_name_plural = _('Answers')
         ordering = ['id']
+
+    def __str__(self):
+        return self.answer_text
